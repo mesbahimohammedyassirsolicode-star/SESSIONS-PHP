@@ -1,6 +1,6 @@
 <?php
-if(isset($_COOKIE['username'])){
-    echo "Welcome " . htmlspecialchars($_COOKIE['username']);
-}else{
-    echo "No cookie found";
-}
+session_start();
+session_unset();
+session_destroy();
+header('Location: login.php');
+exit;

@@ -1,16 +1,24 @@
 <?php
-if($_POST){
+session_start();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $nom = $_POST['nom'] ?? '';
+    $motdepasse = $_POST['motdepasse'] ?? '';
 
-    $name = trim($_POST['name']);
-
-    // create cookie for 1 day
-    setcookie("username", $name, time() + 86400, "/");
-
-    echo "Cookie saved!";
+    if ($nom === "admin" && $motdepasse === "1234") {
+        session_regenerate_id(true);
+        $_SESSION['user'] = $nom;
+        header('Location: dashboard.php');
+        exit;
+    } else {
+        $message = "Identifiants incorrects.";
+    }
 }
 ?>
-
 <form method="POST">
-    <input type="text" name="name" placeholder="Your name">
-    <button>Save</button>
+    <label>Nom :</label>
+    <input type="text" name="nom">
+    <label>Mot de passe :</label>
+    <input type="password" name="motdepasse">
+    <button type="submit">Se connecter</button>
 </form>
+<?php if (!empty($message)) echo "<p style='color:red;'>$message</p>"; ?>
