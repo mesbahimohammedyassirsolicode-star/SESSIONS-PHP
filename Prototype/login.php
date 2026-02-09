@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = trim($_POST["password"] ?? "");
 
     $found = false;
-
     foreach ($users as $user) {
         if ($user["name"] === $username && $user["password"] === $password) {
             $found = true;
@@ -44,13 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $message = "⛔ Compte désactivé";
             } else {
                 $_SESSION["user"] = $user;
-                header("Location: dashboard.php");
+                require_once "dashboard.php";
                 exit;
             }
         }
     }
 
-    if (!$found && $username !== "" && $password !== "") {
+       if (!$found && !empty($username) && !empty($password)) {
         $message = "❌ Identifiants incorrects";
     }
 }
