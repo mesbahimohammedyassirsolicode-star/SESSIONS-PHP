@@ -34,10 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"] ?? "");
     $password = trim($_POST["password"] ?? "");
 
-    $found = false;
+    
     foreach ($users as $user) {
         if ($user["name"] === $username && $user["password"] === $password) {
-            $found = true;
+            
 
             if ($user["active"] === false) {
                 $message = "⛔ Compte désactivé";
