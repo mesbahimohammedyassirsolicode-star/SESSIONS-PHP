@@ -1,32 +1,8 @@
 <?php
+require "data.php";
 session_start();
 
-$users = [
-    [
-        "name" => "Ahmed",
-        "password" => "admin123",
-        "role" => "administrateur",
-        "active" => true
-    ],
-    [
-        "name" => "Sara",
-        "password" => "pass456",
-        "role" => "formateur",
-        "active" => true
-    ],
-    [
-        "name" => "Leila",
-        "password" => "test789",
-        "role" => "apprenant",
-        "active" => false
-    ],
-    [
-        "name" => "Alae",
-        "password" => "test309",
-        "role" => "apprenant",
-        "active" => true
-    ]
-];
+
 
 $message = "";
 
@@ -49,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-       if (!$found && !empty($username) && !empty($password)) {
+       if (!empty($username) && !empty($password)) {
         $message = "❌ Identifiants incorrects";
     }
 }
