@@ -28,7 +28,7 @@ if ($user["role"] === "administrateur") {
 ?>
 </h2>
 
-<form action="login.php" method="POST">
+<form action="login.php" method="get">
     <button type="submit">Se déconnecter</button>
 </form>
 

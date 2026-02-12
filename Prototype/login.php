@@ -9,9 +9,12 @@ $message = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"] ?? "");
     $password = trim($_POST["password"] ?? "");
+if (empty($username) || empty($password))
+    {
+        echo "username and password are empty ";
 
-    
-    foreach ($users as $user) {
+    }else{
+foreach ($users as $user) {
         if ($user["name"] === $username && $user["password"] === $password) {
             
 
@@ -28,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        if (!empty($username) && !empty($password)) {
         $message = "❌ Identifiants incorrects";
     }
+    } 
 }
 ?>
 
