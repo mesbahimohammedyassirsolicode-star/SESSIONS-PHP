@@ -1,11 +1,7 @@
 <?php
 require "data.php";
 session_start();
-
-
-
 $message = "";
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"] ?? "");
     $password = trim($_POST["password"] ?? "");
@@ -13,16 +9,18 @@ if (empty($username) || empty($password))
     {
         echo "username and password are empty ";
 
-    }else{
+    }
+else{
 foreach ($users as $user) {
         if ($user["name"] === $username && $user["password"] === $password) {
             
 
             if ($user["active"] === false) {
                 $message = "⛔ Compte désactivé";
+                break;
             } else {
                 $_SESSION["user"] = $user;
-                require_once "dashboard.php";
+               header("location : dashboard.php"  );
                 exit;
             }
         }

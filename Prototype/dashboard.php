@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_SESSION["user"])) {
-    require_once  " login.php";
+    header ('location: login.php') ;
     exit;
 }
 
