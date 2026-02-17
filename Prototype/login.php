@@ -20,7 +20,7 @@ foreach ($users as $user) {
                 break;
             } else {
                 $_SESSION["user"] = $user;
-               header("location : dashboard.php"  );
+                header("Location: dashboard.php");
                 exit;
             }
         }

@@ -19,7 +19,7 @@ $taches = json_decode($json, true);
     <td>
         <form action="Traitement.php" method="post">
             <input type="hidden" name="id"
-                   value="<?=   $tache["id"]; ?>">
+                   value="<?=$tache["id"];?>">
             <button type="submit">Changer état</button>
         </form>
     </td>

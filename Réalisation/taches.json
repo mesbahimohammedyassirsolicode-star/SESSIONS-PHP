@@ -7,16 +7,16 @@
     {
         "id": 2,
         "titre": "Sport",
-        "etat": "fait"
+        "etat": "a-faire"
     },
     {
         "id": 3,
         "titre": "Travailler sur mon projet PHP",
-        "etat": "fait"
+        "etat": "a-faire"
     },
     {
         "id": 4,
         "titre": "Prparer mon repas",
-        "etat": "fait"
+        "etat": "a-faire"
     }
 ]
