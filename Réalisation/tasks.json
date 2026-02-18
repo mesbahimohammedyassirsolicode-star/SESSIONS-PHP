@@ -18,10 +18,5 @@
         "id": 4,
         "titre": "Pr\u00e9parer mon repas",
         "etat": "fait"
-    },
-    {
-        "id": 5,
-        "titre": "Protype",
-        "etat": "a-faire"
     }
 ]
