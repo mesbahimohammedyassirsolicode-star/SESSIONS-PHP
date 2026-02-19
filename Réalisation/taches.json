@@ -1,10 +1,5 @@
 [
     {
-        "id": 1,
-        "titre": "Faire les courses",
-        "etat": "fait"
-    },
-    {
         "id": 2,
         "titre": "Sport",
         "etat": "fait"
@@ -12,7 +7,7 @@
     {
         "id": 3,
         "titre": "Travailler sur mon projet PHP",
-        "etat": "a-faire"
+        "etat": "fait"
     },
     {
         "id": 4,

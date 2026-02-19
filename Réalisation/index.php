@@ -15,6 +15,7 @@ if (isset($_POST["id"])) {
 
 // DELETE
 if (isset($_POST["delete"])) {
+    echo 'ok';
     $del = $_POST["delete"];
 
     $taches = array_filter($taches, function ($task) use ($del) {
@@ -26,6 +27,7 @@ if (isset($_POST["delete"])) {
 
 // SAVE JSON 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    echo $taches;
     file_put_contents(
         "taches.json",
         json_encode($taches, JSON_PRETTY_PRINT)
@@ -86,19 +88,19 @@ if ($filter !== "all") {
             </td>
             <td>
                 <!-- CHANGE ETAT -->
-                <form method="post" style="display:inline;">
+                <form method="POST" style="display:inline;">
                     <input type="hidden" name="id" value="<?= $tache["id"] ?>">
                     <button type="submit">Change</button>
                 </form>
-
+    </td><td>
                 <!-- DELETE -->
-                <form method="post" style="display:inline;">
+                <form method="POST" style="display:inline;">
                     <input type="hidden" name="delete" value="<?= $tache["id"] ?>">
-                    <button type="submit">
-                        Delete
-                    </button>
+                    <input type="submit" value="Delete">
+                   
                 </form>
             </td>
+            
         </tr>
     <?php endforeach; ?>
 </table>
