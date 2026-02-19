@@ -15,15 +15,13 @@ if (isset($_POST["id"])) {
 
 // DELETE
 if (isset($_POST["delete"])) {
-    echo 'ok';
-    $del = $_POST["delete"];
+    $del = (int) $_POST["delete"];
 
-    $taches = array_filter($taches, function ($task) use ($del) {
+    $taches = array_values(array_filter($taches, function ($task) use ($del) {
         return $task["id"] !== $del;
-    });
-
-    
+    }));
 }
+
 
 // SAVE JSON 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
